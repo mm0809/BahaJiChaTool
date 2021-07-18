@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Baha JiCha tool
-// @namespace    http://tampermonkey.net/
+// @namespace    GiCha
 // @version      0.1
 // @description  try to take over the world!
 // @author       opmm0809
