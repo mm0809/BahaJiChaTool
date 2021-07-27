@@ -1,17 +1,16 @@
 // ==UserScript==
 // @name         Baha JiCha tool
 // @namespace    GiCha
-// @version      0.1
-// @description  try to take over the world!
+// @version      0.2
+// @description  Let me hlep you JiCha!!
 // @author       opmm0809
-// @require      https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js
 // @match        https://forum.gamer.com.tw/C.php?*
 // @match        https://forum.gamer.com.tw/Co.php?*
 // @icon         https://www.google.com/s2/favicons?domain=tampermonkey.net
 // @grant        none
 // ==/UserScript==
 
-(function() {
+(function(jQuery) {
     'use strict';
 
     // Your code here...
@@ -69,4 +68,4 @@
             }
         });
     });
-})();
+})(jQuery);
