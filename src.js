@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Baha JiCha tool
 // @namespace    GiCha
-// @version      0.2
+// @version      0.3
 // @description  Let me hlep you JiCha!!
 // @author       opmm0809
 // @match        https://forum.gamer.com.tw/C.php?*
@@ -48,23 +48,26 @@
     }
 
     var reply_author_id = "";
-    $(document).ready(function(){
-        $(document).on('mouseover', '.tippy-reply-menu', function() {
-            var user_url = $(this).parent().find('.user--sm')[0].href;
+    jQuery(document).ready(function(){
+        jQuery(document).on('mouseover', '.tippy-reply-menu', function() {
+            var user_url = jQuery(this).parent().find('.user--sm')[0].href;
             var parse = user_url.split("/");
             reply_author_id = parse[parse.length - 1];
-            //console.log(reply_author_id);
+            console.log(reply_author_id);
         });
 
 
-        $('body').on('DOMNodeInserted', '.tippy-popper', function(e) {
+        jQuery('body').on('DOMNodeInserted', '.tippy-popper', function(e) {
             var choose_list = e.target.getElementsByTagName("ul")[0];
-            if (choose_list != undefined && choose_list.className == "") {
+            var menu = jQuery(choose_list).closest(".tippy-tooltip--regular");    // to identify what kind of menu
+            if (choose_list != undefined && choose_list.className == "" && menu.attr("data-template-id") == "#replyMenu") {
+
+                //console.log(tmp.attr("data-template-id"))
                 //console.log(reply_author_id);
                 //console.log(choose_list);
                 var DOM = `<li id = 'hentai'><a href = "https://forum.gamer.com.tw/Bo.php?bsn=${bsn}&qt=6&q=${reply_author_id}" style='color: rgb(237, 8, 84);' target="_blank" rel="noreferrer noopener">稽查</a></li>`
-                $(choose_list).find("#hentai").remove()
-                $(choose_list).append(DOM);
+                jQuery(choose_list).find("#hentai").remove()
+                jQuery(choose_list).append(DOM);
             }
         });
     });
